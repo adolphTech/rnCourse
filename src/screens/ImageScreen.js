@@ -1,19 +1,23 @@
-import { View, Text ,StyleSheet} from 'react-native'
-import React from 'react'
-import ImageDetail from '../components/ImageDetail'
+import { View, StyleSheet } from 'react-native';
+import React from 'react';
+import ImageDetail from '../components/ImageDetail';
 
 const ImageScreen = () => {
   return (
-    <View>
-      <ImageDetail />
-      <ImageDetail />
-      <ImageDetail />
-      <ImageDetail/>
-    </View>
-  )
-}
-const styles = StyleSheet.create({
-  
-})
+    <View style={styles.container}>
+      <ImageDetail imageScore="8" title="Forest" imageSource={require("../../assets/forest.jpg")} />
 
-export default ImageScreen
+      <ImageDetail imageScore="9" title="Mountain" imageSource={require("../../assets/mountain.jpg")} />
+
+      <ImageDetail imageScore="7" title="Beach" imageSource={require("../../assets/beach.jpg")} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default ImageScreen;
