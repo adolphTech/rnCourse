@@ -7,20 +7,37 @@ import {
   TouchableOpacity,
   Button,
 } from 'react-native';
-import React, { useContext } from 'react';
+import React, { useContext ,useEffect} from 'react';
 import { Context as BlogContext } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 
-const IndexScreen = () => {
-  const { state, addBlogPost ,deleteBlogPost} = useContext(BlogContext);
+
+const IndexScreen = ({route,navigation}) => {
+  const { state, getBlogPosts, deleteBlogPost } = useContext(BlogContext);
+  
+  useEffect(() => { 
+    getBlogPosts();
+  const listener = navigation.addListener('focus', () => {
+      getBlogPosts();
+  });
+    
+    return () => {
+      listener.remove(); 
+    };
+
+  }, []);
+
+
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
+      
+
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
           return (
+            <TouchableOpacity onPress={()=>navigation.navigate("ShowScreen",{id:item.id})}>
             <View style={styles.row}>
               <Text style={styles.title}>{item.title}-{item.id}</Text>
               <TouchableOpacity
@@ -29,13 +46,17 @@ const IndexScreen = () => {
                 }}>
                 <Feather name="trash" style={styles.icon} color="black" />
                 </TouchableOpacity>
-            </View>
+              </View>
+              </TouchableOpacity>
           );
         }}
       />
     </View>
   );
 };
+
+
+
 
 export default IndexScreen;
 

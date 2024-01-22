@@ -7,13 +7,14 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
-    
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "axios": "^1.6.5",
     "expo": "~50.0.2",
     "expo-status-bar": "~1.11.1",
+    "json-server": "^1.0.0-alpha.22",
     "react": "18.2.0",
     "react-native": "0.73.2",
     "react-native-debugger-open": "^0.4.3",
@@ -23,9 +24,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
-  },
-  "overrides": {
-    "react-devtools-core": "~4.28.0"
   },
   "private": true
 }
