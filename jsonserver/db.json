@@ -1,0 +1,34 @@
+{
+  "blogposts": [
+    {
+      "id": "1",
+      "title": "My first blogpost",
+      "content": "This is my first blogpost. I hope you like it!"
+    },
+    {
+      "id": "6ac8",
+      "title": "Second blogpost",
+      "content": "Ta ta ta"
+    },
+    {
+      "id": "7f8a",
+      "title": "3rd post",
+      "content": "Bruvvvv"
+    },
+    {
+      "id": "7bd1",
+      "title": "4th post",
+      "content": "A test tu"
+    },
+    {
+      "id": "3265",
+      "title": "5th G",
+      "content": "Hellooo"
+    },
+    {
+      "title": "6th edited ",
+      "content": "Ggy",
+      "id": "dc82"
+    }
+  ]
+}
