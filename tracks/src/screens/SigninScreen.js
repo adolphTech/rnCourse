@@ -1,4 +1,5 @@
 import { StyleSheet, View } from 'react-native';
+import { ActivityIndicator, MD2Colors } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useContext, useCallback, useEffect } from 'react';
 import AuthForm from '../components/AuthForm';
@@ -13,6 +14,11 @@ const SigninScreen = () => {
     tryLocalSignin();
   }, []);
 
+
+
+//  console.log(state.loading);
+ 
+
   useFocusEffect(
     useCallback(() => {
       // This is equivalent to the onWillFocus event in NavigationEvents
@@ -26,18 +32,25 @@ const SigninScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <AuthForm
-        headerText="Sign In to Your Account"
-        errorMessage={state.errorMessage}
-        submitButtonText="Sign In"
-        onSubmit={signin}
-      />
-      <NavLink
-        text="Don't have an account? Sign up instead!"
-        routeName="Signup"
-      />
-    </View>
+    state.loading ? (
+      <View style={styles.loadingContainer}>
+           <ActivityIndicator animating={true} color={MD2Colors.red800} size={80}/>
+
+      </View>
+    ) : (
+      <View style={styles.container}>
+        <AuthForm
+          headerText="Sign In to Your Account"
+          errorMessage={state.errorMessage}
+          submitButtonText="Sign In"
+          onSubmit={signin}
+        />
+        <NavLink
+          text="Don't have an account? Sign up instead!"
+          routeName="Signup"
+        />
+      </View>
+    )
   );
 };
 
@@ -48,5 +61,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginBottom: 50,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });

@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, } from 'react-native'
+import { StyleSheet, Text, } from 'react-native'
+import {
+  SafeAreaView,
+  SafeAreaProvider,
+  SafeAreaInsetsContext,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 import React, { useContext } from 'react'
 import { Button } from "@rneui/themed";
 import Spacer from "../components/Spacer";
@@ -9,13 +15,13 @@ const AccountScreen = () => {
 
   const { signout } = useContext(AuthContext);
   return (
-    <View >
+    <SafeAreaView forceInset={{top:"always"}}>
       <Text style={{fontSize:48}} >AccountScreen</Text>
       <Spacer>
         <Button title="Sign Out" onPress={signout} />
       </Spacer>
     
-    </View>
+    </SafeAreaView>
   )
 }
 

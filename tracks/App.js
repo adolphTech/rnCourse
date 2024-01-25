@@ -1,4 +1,4 @@
-import React, {  useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -14,7 +14,10 @@ import {
 import { IndexScreenOptions } from './src/utils/headerOptions';
 
 import { Provider as AuthProvider } from './src/context/AuthContext';
+
 import { Context as AuthContext } from './src/context/AuthContext';
+
+import { Provider as LocationProvider } from './src/context/LocationContext';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -43,7 +46,7 @@ const App = () => {
           <Tab.Screen name="Account" component={AccountScreen} />
         </Tab.Navigator>
       ) : (
-        <Stack.Navigator initialRouteName='Signin' >
+        <Stack.Navigator initialRouteName="Signin">
           {/* <Stack.Screen name="ResolveAuth" component={ResolveAuthScreen} /> */}
           <Stack.Screen
             name="Signup"
@@ -63,9 +66,11 @@ const App = () => {
 
 const AppWrapper = () => {
   return (
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <LocationProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </LocationProvider>
   );
 };
 
