@@ -36,10 +36,10 @@ app.get('/', requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-app.listen(3000, async () => {
-    console.log('App listening on port 3000!');
+app.listen(8000, async () => {
+    console.log('App listening on port 8000!');
   
     // Start ngrok and create a tunnel to port 3000
-    const listener = await ngrok.connect({ addr: 3000, authtoken: process.env.NGROK_AUTH_TOKEN });
+    const listener = await ngrok.connect({ addr: 8000, authtoken: process.env.NGROK_AUTH_TOKEN });
     console.log(`ngrok tunnel created at url`, listener.url());
   });
