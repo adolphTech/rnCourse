@@ -16,11 +16,17 @@ import Spacer from "../components/Spacer";
 
 const TrackCreateScreen = () => {
   const insets = useSafeAreaInsets();
-  const { add_location } = useContext(LocationContext);
-
   const isFocused = useIsFocused();
 
-  const [err] = useLocation(isFocused,add_location); // use the hook
+  const { state:{recording}, add_location } = useContext(LocationContext);
+  
+  const callback = useCallback((location) => {
+    add_location(location,recording);
+  }, [recording]);
+
+
+
+  const [err] = useLocation(isFocused || recording,callback); // use the hook
 
   useFocusEffect(
     useCallback(() => {
@@ -30,7 +36,7 @@ const TrackCreateScreen = () => {
         // Do something when the screen is unfocused
         // Useful for cleanup functions
         // stopWatching();
-        console.log("unfocused");
+        // console.log("unfocused");
       };
     }, [])
   );

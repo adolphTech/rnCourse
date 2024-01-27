@@ -7,8 +7,10 @@ const Map = () => {
   const mapRef = useRef();
 
   const {
-    state: { currentLocation },
+    state: { currentLocation, locations},
   } = useContext(LocationContext);
+
+  // console.log(currentLocation);
 
   useEffect(() => {
     if (currentLocation) {
@@ -19,6 +21,10 @@ const Map = () => {
       });
     }
   }, [currentLocation]);
+
+
+
+
 
   if (!currentLocation) {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
@@ -40,6 +46,8 @@ const Map = () => {
         strokeColor="rgba(158,158,255,1.0)"
         fillColor="rgba(158,158,255,0.3)"
       />
+
+      <Polyline strokeWidth={4} coordinates={locations.map(loc => loc.coords)} strokeColor={"#0000FF"} />
     </MapView>
   );
 };

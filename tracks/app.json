@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "tracks",
-    "slug": "tracks",
+    "slug": "honeypot",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "03f9ad3f-5205-4608-ba71-ba96b73f3fb2"
+      }
+    },
+    "owner": "adolph"
   }
 }
