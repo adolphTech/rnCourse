@@ -42,8 +42,4 @@ app.listen(PORT, async () => {
     // Start ngrok and create a tunnel to port 3000
     // const listener = await ngrok.connect({ addr: 8000, authtoken: process.env.NGROK_AUTH_TOKEN });
     // console.log(`ngrok tunnel created at url`, listener.url());
-<<<<<<< HEAD
   });
-=======
-  });
->>>>>>> bd54b14791bead2fec104f6420804cdea132a59d
