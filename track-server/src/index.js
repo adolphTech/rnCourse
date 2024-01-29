@@ -11,7 +11,7 @@ app.use(express.json()); // Make sure it comes back as json
 app.use(express.urlencoded({ extended: true }));
 app.use(authRoutes);
 app.use(trackRoutes);
-
+const PORT = process.env.PORT
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 const cluster = process.env.DB_CLUSTER;
@@ -36,10 +36,14 @@ app.get('/', requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-app.listen(8000, async () => {
-    console.log('App listening on port 8000!');
+app.listen(PORT, async () => {
+    console.log(`App listening on port ${PORT}`);
   
     // Start ngrok and create a tunnel to port 3000
     // const listener = await ngrok.connect({ addr: 8000, authtoken: process.env.NGROK_AUTH_TOKEN });
     // console.log(`ngrok tunnel created at url`, listener.url());
+<<<<<<< HEAD
   });
+=======
+  });
+>>>>>>> bd54b14791bead2fec104f6420804cdea132a59d
