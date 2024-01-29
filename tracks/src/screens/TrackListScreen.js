@@ -38,6 +38,7 @@ const TrackListScreen = ({ route }) => {
         }}
       
       />
+      <Button title="Back" onPress={() => navigation.navigate('TrackBack')} />
     </>
   )
 }

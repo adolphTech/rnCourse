@@ -10,6 +10,7 @@ import {
   TrackDetailScreen,
   TrackListScreen,
   ResolveAuthScreen,
+  TrackBackScreen,
 } from './src/screens/index.screens';
 import { IndexScreenOptions } from './src/utils/headerOptions';
 
@@ -40,6 +41,11 @@ const App = () => {
         }}
       />
       <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
+      <Stack.Screen name="TrackBack" component={TrackBackScreen} options={{
+        headerTransparent: true,
+        headerShown: false,
+      }}/>
+
     </Stack.Navigator>
   );
 
@@ -74,7 +80,7 @@ const App = () => {
             options={{ title: 'Track List' }}
           />
           <Tab.Screen name="TrackCreate" component={TrackCreateScreen} />
-          <Tab.Screen name="Account" component={AccountScreen} />
+          <Tab.Screen name="Account" component={AccountScreen}  />
         </Tab.Navigator>
       ) : (
         <Stack.Navigator initialRouteName="Signin">
