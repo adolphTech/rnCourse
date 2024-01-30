@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
-import { Entypo,Ionicons } from '@expo/vector-icons';
+import { Entypo, Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const TrackBackScreen = () => {
   const imageURL = "https://res.cloudinary.com/dchhoja40/image/upload/v1706146346/grill_gbbwvd.jpg";
+
+  const navigation = useNavigation();
 
   return (
     <View style={{ flex: 1 }}>
@@ -14,14 +18,16 @@ const TrackBackScreen = () => {
           source={{ uri: imageURL }}
         >
         </ImageBackground>
+
+        <TouchableOpacity style={styles.floatingButtonL} onPress={()=>{navigation.goBack()}}>
+          <Entypo name="chevron-left" size={30} color="black" />
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.floatingButtonR}>
           <Ionicons name="cart-outline" size={30} color="black" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.floatingButtonL}>
-          <Entypo name="chevron-left" size={30} color="black" />
-        </TouchableOpacity>
-        {/* Rest of your screen components */}
+        
       </View>
       
       <View style={{ flex: 2 ,top:50}}>
